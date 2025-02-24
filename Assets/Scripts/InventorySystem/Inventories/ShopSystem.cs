@@ -29,7 +29,7 @@ public class ShopSystem : MonoBehaviour
         {
             playerInventory.Add(selectedItem);
             shopInventory.Remove(selectedItem);
-            playerCoins -= selectedItem.cost;
+            //playerCoins -= selectedItem.cost;
             UpdateUI();
         }
     }
@@ -40,19 +40,19 @@ public class ShopSystem : MonoBehaviour
         {
             shopInventory.Add(selectedItem);
             playerInventory.Remove(selectedItem);
-            playerCoins += selectedItem.cost;
+            //playerCoins += selectedItem.cost;
             UpdateUI();
         }
     }
 
     public void UseItem()
     {
-        if (selectedItem != null && playerInventory.Contains(selectedItem) && selectedItem.lifeRestore > 0)
+        /*if (selectedItem != null && playerInventory.Contains(selectedItem) && selectedItem.lifeRestore > 0)
         {
             playerLife = Mathf.Min(playerLife + selectedItem.lifeRestore, 100);
             playerInventory.Remove(selectedItem);
             UpdateUI();
-        }
+        }*/
     }
 
     public void TakeDamage()
