@@ -4,5 +4,5 @@ using UnityEngine;
 
 public class ItemPotions : Item
 {
-    public int LlifeRestore;
+    public int LifeRestore;
 }

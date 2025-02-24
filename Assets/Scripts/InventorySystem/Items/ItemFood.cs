@@ -4,5 +4,5 @@ using UnityEngine;
 
 public class ItemFood : Item
 {
-    public int lifeRestore;
+    public int LifeRestore;
 }

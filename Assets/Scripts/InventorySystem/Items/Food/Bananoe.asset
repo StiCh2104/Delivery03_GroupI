@@ -15,5 +15,6 @@ MonoBehaviour:
   cost: 3
   Name: Bananoe
   ImageUI: {fileID: 1936781848245295189, guid: 829cf6f9cc636ac4ca639a1278130d55, type: 3}
+  IsConsumable: 1
   IsStackable: 1
-  lifeRestore: 5
+  LifeRestore: 10
