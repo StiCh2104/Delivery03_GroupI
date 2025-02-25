@@ -53,7 +53,7 @@ public class InventoryUI : MonoBehaviour
     private GameObject AddSlot(ItemSlot inventorySlot)
     {
         var element = Instantiate(SlotPrefab, Vector3.zero, Quaternion.identity, transform);
-        element.Initialize(inventorySlot, _shopSystem, IsPlayerInventory);
+        element.Initialize(inventorySlot, _shopSystem, IsPlayerInventory, this);
         return element.gameObject;
     }
 
@@ -69,7 +69,7 @@ public class InventoryUI : MonoBehaviour
             var slotUI = slot.GetComponent<InventorySlotUI>();
             if (slotUI)
             {
-                slotUI.HighlightImage.gameObject.SetActive(false);
+                slotUI.SelectedImage.gameObject.SetActive(false);
             }
         }
     }

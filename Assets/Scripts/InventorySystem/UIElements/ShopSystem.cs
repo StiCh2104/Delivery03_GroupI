@@ -53,8 +53,8 @@ public class ShopSystem : MonoBehaviour
         playerInventory.Clear();
         shopInventory.Clear();
 
-        initialPlayerItems = Random.Range(minimumInitialPlayerItems, 20);
-        initialShopItems = Random.Range(minimumInitialShopItems, 20);
+        initialPlayerItems = Random.Range(minimumInitialPlayerItems, 30);
+        initialShopItems = Random.Range(minimumInitialShopItems, 30);
 
         for (int i = 0; i < initialPlayerItems; i++)
         {
@@ -111,6 +111,7 @@ public class ShopSystem : MonoBehaviour
             shopCoins += selectedItem.cost;
             ResetSelectedItem(shopInventory);
             UpdateUI();
+            StartCoroutine(AnimateShop());
         }
     }
 
@@ -124,6 +125,7 @@ public class ShopSystem : MonoBehaviour
             shopCoins -= selectedItem.cost;
             ResetSelectedItem(playerInventory);
             UpdateUI();
+            StartCoroutine(AnimatePlayer());
         }
     }
 
@@ -145,6 +147,38 @@ public class ShopSystem : MonoBehaviour
         playerHealth = Mathf.Max(playerHealth - 10, 0);
         UpdateUI();
     }
+
+    private IEnumerator AnimatePlayer()
+    {
+        RectTransform textRect = playerCoinsText.GetComponentInParent<RectTransform>();
+        Color originalColor = playerCoinsText.color;
+        Vector3 originalScale = textRect.localScale;
+        Vector3 smallScale = originalScale * 0.9f;
+        Vector3 bigScale = originalScale * 1.1f;
+        playerCoinsText.color = Color.green;
+        textRect.localScale = smallScale;
+        yield return new WaitForSeconds(0.15f);
+        textRect.localScale = bigScale;
+        yield return new WaitForSeconds(0.15f);
+        textRect.localScale = originalScale;
+        playerCoinsText.color = originalColor;
+    }
+    private IEnumerator AnimateShop()
+    {
+        RectTransform textRect = shopCoinsText.GetComponentInParent<RectTransform>();
+        Color originalColor = shopCoinsText.color;
+        Vector3 originalScale = textRect.localScale;
+        Vector3 smallScale = originalScale * 0.9f;
+        Vector3 bigScale = originalScale * 1.1f;
+        shopCoinsText.color = Color.green;
+        textRect.localScale = smallScale;
+        yield return new WaitForSeconds(0.15f);
+        textRect.localScale = bigScale;
+        yield return new WaitForSeconds(0.15f);
+        textRect.localScale = originalScale;
+        shopCoinsText.color = originalColor;
+    }
+
 
     public void ResetSelectedItem(Inventory inventory)
     {
@@ -222,7 +256,7 @@ public class ShopSystem : MonoBehaviour
         InventorySlotUI slotUI = inventoryUI.GetSlotUIByItem(selectedItem);
         if (slotUI != null)
         {
-            slotUI.HighlightImage.gameObject.SetActive(true);
+            slotUI.SelectedImage.gameObject.SetActive(true);
         }
     }
     private void Kill()

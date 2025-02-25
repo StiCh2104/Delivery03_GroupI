@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 [CreateAssetMenu(fileName = "NewInventory", menuName = "Inventory System/Inventory")]
 public class Inventory : ScriptableObject
@@ -27,13 +28,15 @@ public class Inventory : ScriptableObject
             Slots.Add(slot);
         }
 
-        OnInventoryChange?.Invoke();
+        OnInventoryChange?.Invoke(); 
     }
+
     public void Clear()
     {
         Slots.Clear();
         OnInventoryChange?.Invoke();
     }
+
     public int GetItemIndex(Item item)
     {
         for (int i = 0; i < Slots.Count; i++)
