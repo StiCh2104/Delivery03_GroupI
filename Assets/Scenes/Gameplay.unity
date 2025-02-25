@@ -495,6 +495,39 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfdc04da1285c184590e2a06fd754610, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerInventory: {fileID: 11400000, guid: 8c0798e71545e154db212ea8f7d858b3, type: 2}
+  shopInventory: {fileID: 11400000, guid: 28ca01251cf2de143a1d5c092b935911, type: 2}
+  allItems:
+  - {fileID: 11400000, guid: 8c50886e8f295a549aa5abe6bc5cd249, type: 2}
+  - {fileID: 11400000, guid: 54bdf8ac49bbeaa4fbe8fce1628de856, type: 2}
+  - {fileID: 11400000, guid: 843b39d98a285f144b3e9c1195da893f, type: 2}
+  - {fileID: 11400000, guid: 26a199701486f234fbd31c9b04765ebe, type: 2}
+  - {fileID: 11400000, guid: c0ef134d429d3fd4cb0b5f658dfbff75, type: 2}
+  - {fileID: 11400000, guid: cfc9aa7f6bf8a9c4c855153996f3d0e0, type: 2}
+  - {fileID: 11400000, guid: ef43462a3a4504548b21fa4302d2d467, type: 2}
+  - {fileID: 11400000, guid: 7c8fc4e16d1685544b4251682063d87e, type: 2}
+  - {fileID: 11400000, guid: 691185179934a844c8a43216d3794451, type: 2}
+  - {fileID: 11400000, guid: 370722379af94d042921c155a2bc02e7, type: 2}
+  - {fileID: 11400000, guid: c26df24d9dc54c7409b9ff8c25f90b7e, type: 2}
+  - {fileID: 11400000, guid: 286f7661c4fefe74b8d404bf908f987e, type: 2}
+  - {fileID: 11400000, guid: 80a3ab33b2a42074f931633934eb48ad, type: 2}
+  - {fileID: 11400000, guid: 4af6be64eee703a4898ace7ff53d8285, type: 2}
+  - {fileID: 11400000, guid: 990b1c01935a0304e8f1038cbcfe3de0, type: 2}
+  playerCoinsText: {fileID: 1005144377}
+  shopCoinsText: {fileID: 1778264743}
+  playerCoins: 100
+  shopCoins: 100
+  playerHealth: 100
+  healthBar: {fileID: 1106121702}
+  selectedItem: {fileID: 0}
+  isPlayerInventory: 0
+  minimumInitialPlayerItems: 3
+  minimumInitialShopItems: 5
+  buyButton: {fileID: 827637566}
+  sellButton: {fileID: 1182170543}
+  useButton: {fileID: 1778100640}
+  playerInventoryUI: {fileID: 1971635132}
+  shopInventoryUI: {fileID: 62576001}
 --- !u!4 &162921774
 Transform:
   m_ObjectHideFlags: 0
@@ -2948,7 +2981,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.6864428, y: 0.13900001}
   m_AnchorMax: {x: 0.95600003, y: 0.8928278}
-  m_AnchoredPosition: {x: -730, y: -0.33294678}
+  m_AnchoredPosition: {x: -730.00006, y: -0.33294678}
   m_SizeDelta: {x: 0.23522949, y: -0.6658325}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1971635132
