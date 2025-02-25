@@ -8,6 +8,7 @@ public enum GameScene { Start, Gameplay, Ending }
 public class Manager  : MonoBehaviour 
 {
     public static Manager Instance { get; private set; }
+
     public GameScene CurrentState { get; private set; }
 
     private void Awake()
@@ -42,7 +43,7 @@ public class Manager  : MonoBehaviour
             case GameScene.Ending:
                 SceneManager.LoadScene("Ending");
                 break;
-            default: SceneManager.LoadScene("Title");//posible cambio
+            default: SceneManager.LoadScene("Title");//def
                 break;
         }
     }
