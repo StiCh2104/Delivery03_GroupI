@@ -20,11 +20,11 @@ public class ButtonScriptOnClick : MonoBehaviour
                     break;
                 case 1: //esp
                     btn.onClick.AddListener(() => LanguageManager.Instance.ChangeLanguage(LanguageManager.Language.Spanish));
-                    Debug.Log("Cambio a ingles");
+                    Debug.Log("Cambio a esp");
                     break;
                 case 2: // cat
                     btn.onClick.AddListener(() => LanguageManager.Instance.ChangeLanguage(LanguageManager.Language.Catalan));
-                    Debug.Log("Cambio a ingles");
+                    Debug.Log("Cambio a catalan");
                     break;
             }
                 
