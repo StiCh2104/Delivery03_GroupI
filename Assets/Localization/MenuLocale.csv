@@ -6,7 +6,8 @@ Shop,Shop,Botiga,Tienda,Geschäft
 Buy,Buy,Comprar,Comprar,Kaufen
 Sell,Sell,Vendre,Vender,Verkaufen
 Use,Use,Usar,Usar,Benutzen
-Coins,Coins,Calers,Monedas,Münzen
+PlayerCoins,Coins: {0},Calers: {0},Monedas: {0},Münzen: {0}
+ShopCoins,Coins: {0},Calers: {0},Monedas: {0},Münzen: {0}
 Spanish,Spanish,Espanyol,Español,Spanische
 Catalan,Catalan,Català,Catalan,Katalanish
 English,English,Anglès,Inglés,Englisch

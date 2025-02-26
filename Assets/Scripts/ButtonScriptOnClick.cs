@@ -11,6 +11,8 @@ public class ButtonScriptOnClick : MonoBehaviour
         {
             case 0: btn.onClick.AddListener(() => Manager.Instance.StartGame()); break;
             case 1: btn.onClick.AddListener(() => Manager.Instance.EndGame()); break;
+            case 2: btn.onClick.AddListener(() => Manager.Instance.GoToMainMenu()); break;
+            case 3: btn.onClick.AddListener(() => Manager.Instance.ExitGame()); break;
         }
     }
 }

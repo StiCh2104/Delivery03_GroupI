@@ -64,6 +64,7 @@ public class Localizer : MonoBehaviour
     {
         currentLanguage = lang;
         OnLanguageChange?.Invoke();
+        FindObjectOfType<ShopSystem>().UpdateUI();
     }
 
     public string GetText(string key)

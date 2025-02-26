@@ -1671,7 +1671,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9f09c354ceb37e42929514187a1844e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  key: Coin
+  key: PlayerCoins
 --- !u!1 &1013845783
 GameObject:
   m_ObjectHideFlags: 0
@@ -3082,8 +3082,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 117.4, y: 26}
-  m_SizeDelta: {x: 230.69, y: 50}
+  m_AnchoredPosition: {x: 130.3, y: 26}
+  m_SizeDelta: {x: 256.49, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1537411342
 CanvasRenderer:
@@ -3685,6 +3685,7 @@ GameObject:
   - component: {fileID: 1778264741}
   - component: {fileID: 1778264742}
   - component: {fileID: 1778264743}
+  - component: {fileID: 1778264744}
   m_Layer: 5
   m_Name: mirar shop o algo que esta mal se escribe desde ahi
   m_TagString: Untagged
@@ -3810,6 +3811,19 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &1778264744
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1778264740}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9f09c354ceb37e42929514187a1844e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  key: ShopCoins
 --- !u!1 &1780240269
 GameObject:
   m_ObjectHideFlags: 0
@@ -4877,8 +4891,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 116.21001, y: 28}
-  m_SizeDelta: {x: 227.06, y: 51.4}
+  m_AnchoredPosition: {x: 129.11, y: 28}
+  m_SizeDelta: {x: 252.86, y: 51.4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2127330164
 CanvasRenderer:

@@ -37,6 +37,12 @@ public class ShopSystem : MonoBehaviour
         SetMaxHealth();
         HideButtons();
         InitializeInventories();
+        Localizer.OnLanguageChange += UpdateUI;
+        StartCoroutine(DelayedUpdateUI());
+    }
+    private IEnumerator DelayedUpdateUI()
+    {
+        yield return null;
         UpdateUI();
     }
 
@@ -238,12 +244,17 @@ public class ShopSystem : MonoBehaviour
         sellButton.SetActive(false);
         useButton.SetActive(false);
     }
-
-    void UpdateUI()
+    void OnDestroy()
     {
-        playerCoinsText.text = "Coins: " + playerCoins;
-        shopCoinsText.text = "Coins: " + shopCoins;
+        Localizer.OnLanguageChange -= UpdateUI;
     }
+    public void UpdateUI()
+    {
+        playerCoinsText.text = string.Format(Localizer.Instance.GetText("PlayerCoins"), playerCoins);
+        shopCoinsText.text = string.Format(Localizer.Instance.GetText("ShopCoins"), shopCoins);
+    }
+
+
     public void DeselectAllItems()
     {
         playerInventoryUI.DeselectAllItems();
@@ -261,6 +272,6 @@ public class ShopSystem : MonoBehaviour
     }
     private void Kill()
     {
-
+        Manager.Instance.EndGame();
     }
 }

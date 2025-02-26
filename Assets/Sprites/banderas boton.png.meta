@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      banderas boton_0: -277052102233215421
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

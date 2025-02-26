@@ -59,5 +59,9 @@ public class Manager  : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Return))
             ChangeState(GameScene.Gameplay);
     }
+    public void ExitGame()
+    {
+        Application.Quit();
+    }
 
 }
