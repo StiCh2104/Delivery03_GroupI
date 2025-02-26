@@ -32,6 +32,11 @@ public class ShopSystem : MonoBehaviour
     public InventoryUI playerInventoryUI; 
     public InventoryUI shopInventoryUI;
 
+    public AudioClip buyAndSell;
+    public AudioClip takeDamage;
+
+    private AudioSource audioSource;      
+
     void Start()
     {
         SetMaxHealth();
@@ -39,6 +44,9 @@ public class ShopSystem : MonoBehaviour
         InitializeInventories();
         Localizer.OnLanguageChange += UpdateUI;
         StartCoroutine(DelayedUpdateUI());
+        SetSound();
+
+
     }
     private IEnumerator DelayedUpdateUI()
     {
@@ -111,6 +119,7 @@ public class ShopSystem : MonoBehaviour
     {
         if (selectedItem != null && playerCoins >= selectedItem.cost && shopInventory.HasItem(selectedItem))
         {
+            PlaySound(buyAndSell);
             shopInventory.RemoveItem(selectedItem);
             playerInventory.AddItem(selectedItem);
             playerCoins -= selectedItem.cost;
@@ -125,6 +134,7 @@ public class ShopSystem : MonoBehaviour
     {
         if (selectedItem != null && playerInventory.HasItem(selectedItem) && shopCoins >= selectedItem.cost)
         {
+            PlaySound(buyAndSell);
             playerInventory.RemoveItem(selectedItem);
             shopInventory.AddItem(selectedItem);
             playerCoins += selectedItem.cost;
@@ -151,6 +161,7 @@ public class ShopSystem : MonoBehaviour
     public void TakeDamage()
     {
         playerHealth = Mathf.Max(playerHealth - 10, 0);
+        PlaySound(takeDamage);
         UpdateUI();
     }
 
@@ -274,4 +285,25 @@ public class ShopSystem : MonoBehaviour
     {
         Manager.Instance.EndGame();
     }
+    public void SetSound()
+    {
+        audioSource = gameObject.AddComponent<AudioSource>();
+        if (audioSource == null)
+        {
+            audioSource = gameObject.AddComponent<AudioSource>();
+        }
+    }
+    public void PlaySound(AudioClip sound)
+    {
+        if (sound != null)
+        {
+            audioSource.PlayOneShot(sound);
+        }
+        else
+        {
+            Debug.LogWarning("No se ha asignado audio");
+        }
+    }
+
+    
 }
