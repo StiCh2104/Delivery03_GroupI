@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.UI;
 
 public class ShopSystem : MonoBehaviour
@@ -32,10 +33,11 @@ public class ShopSystem : MonoBehaviour
     public InventoryUI playerInventoryUI; 
     public InventoryUI shopInventoryUI;
 
-    public AudioClip buyAndSell;
-    public AudioClip takeDamage;
+    public AudioClip buyAndSellSound;
+    public AudioClip takeDamageSound;
 
-    private AudioSource audioSource;      
+    public AudioSource audioSource;
+
 
     void Start()
     {
@@ -45,7 +47,6 @@ public class ShopSystem : MonoBehaviour
         Localizer.OnLanguageChange += UpdateUI;
         StartCoroutine(DelayedUpdateUI());
         SetSound();
-
 
     }
     private IEnumerator DelayedUpdateUI()
@@ -97,6 +98,7 @@ public class ShopSystem : MonoBehaviour
     public void HitPlayer()
     {
         playerHealth -= 10;
+        PlaySound(takeDamageSound);
         SetHealth();
     }
     private IEnumerator AnimateScale()
@@ -119,7 +121,7 @@ public class ShopSystem : MonoBehaviour
     {
         if (selectedItem != null && playerCoins >= selectedItem.cost && shopInventory.HasItem(selectedItem))
         {
-            PlaySound(buyAndSell);
+            PlaySound(buyAndSellSound);
             shopInventory.RemoveItem(selectedItem);
             playerInventory.AddItem(selectedItem);
             playerCoins -= selectedItem.cost;
@@ -134,7 +136,7 @@ public class ShopSystem : MonoBehaviour
     {
         if (selectedItem != null && playerInventory.HasItem(selectedItem) && shopCoins >= selectedItem.cost)
         {
-            PlaySound(buyAndSell);
+            PlaySound(buyAndSellSound);
             playerInventory.RemoveItem(selectedItem);
             shopInventory.AddItem(selectedItem);
             playerCoins += selectedItem.cost;
@@ -142,6 +144,7 @@ public class ShopSystem : MonoBehaviour
             ResetSelectedItem(playerInventory);
             UpdateUI();
             StartCoroutine(AnimatePlayer());
+
         }
     }
 
@@ -161,7 +164,6 @@ public class ShopSystem : MonoBehaviour
     public void TakeDamage()
     {
         playerHealth = Mathf.Max(playerHealth - 10, 0);
-        PlaySound(takeDamage);
         UpdateUI();
     }
 
@@ -285,25 +287,17 @@ public class ShopSystem : MonoBehaviour
     {
         Manager.Instance.EndGame();
     }
+
     public void SetSound()
     {
         audioSource = gameObject.AddComponent<AudioSource>();
-        if (audioSource == null)
-        {
-            audioSource = gameObject.AddComponent<AudioSource>();
-        }
     }
+
     public void PlaySound(AudioClip sound)
     {
         if (sound != null)
         {
             audioSource.PlayOneShot(sound);
         }
-        else
-        {
-            Debug.LogWarning("No se ha asignado audio");
-        }
     }
-
-    
 }

@@ -1,2 +1,24 @@
 fileFormatVersion: 2
 guid: bfdc04da1285c184590e2a06fd754610
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - playerInventory: {instanceID: 0}
+  - shopInventory: {instanceID: 0}
+  - playerCoinsText: {instanceID: 0}
+  - shopCoinsText: {instanceID: 0}
+  - healthBar: {instanceID: 0}
+  - selectedItem: {instanceID: 0}
+  - buyButton: {instanceID: 0}
+  - sellButton: {instanceID: 0}
+  - useButton: {instanceID: 0}
+  - playerInventoryUI: {instanceID: 0}
+  - shopInventoryUI: {instanceID: 0}
+  - a: {fileID: 8300000, guid: 80ca8218b71c2c0499a6da8cdccd4492, type: 3}
+  - buyAndSell: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

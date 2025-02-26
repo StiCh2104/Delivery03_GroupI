@@ -1,2 +1,19 @@
 fileFormatVersion: 2
 guid: ac44e08514a3e0144b60ae82080d75a8
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - Image: {instanceID: 0}
+  - SelectedImage: {instanceID: 0}
+  - HighlightImage: {instanceID: 0}
+  - AmountText: {instanceID: 0}
+  - popUpPrefab: {instanceID: 0}
+  - tick: {fileID: 8300000, guid: fe62f3f5aa3aeb9498e47059317d01c8, type: 3}
+  - pickUp: {fileID: 8300000, guid: 735691b28311873479b61ed9d337ff44, type: 3}
+  - audioSource: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

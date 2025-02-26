@@ -27,6 +27,9 @@ public class InventorySlotUI : MonoBehaviour, IBeginDragHandler, IDragHandler, I
     public GameObject popUpPrefab; 
     private GameObject popUpInstance;
 
+    public AudioClip pickUp;
+    public AudioSource audioSource;
+
     public void Initialize(ItemSlot slot, ShopSystem shopSystem, bool IsPlayerInventory, InventoryUI inventoryUI)
     {
         _item = slot.Item;
@@ -45,6 +48,12 @@ public class InventorySlotUI : MonoBehaviour, IBeginDragHandler, IDragHandler, I
         HighlightImage.gameObject.SetActive(false);
         SelectedImage.gameObject.SetActive(false);
         originalInventoryUI = inventoryUI;
+
+        if (audioSource ==  null)
+        {
+            audioSource = gameObject.AddComponent<AudioSource>();
+            audioSource.playOnAwake = false;
+        }
     }
 
     public void OnItemClicked()
@@ -53,6 +62,7 @@ public class InventorySlotUI : MonoBehaviour, IBeginDragHandler, IDragHandler, I
         _shopSystem.SelectItem(_item, _isPlayerInventory);
         SelectedImage.gameObject.SetActive(true);
         StartCoroutine(AnimateScale());
+        PlaySound(pickUp);
     }
     public void OnBeginDrag(PointerEventData eventData)
     {
@@ -167,5 +177,13 @@ public class InventorySlotUI : MonoBehaviour, IBeginDragHandler, IDragHandler, I
             popUpInstance = null;
         }
         HighlightImage.gameObject.SetActive(false);
+    }
+
+    private void PlaySound(AudioClip clip)
+    {
+        if (clip != null && audioSource != null)
+        {
+            audioSource.PlayOneShot(clip);
+        }
     }
 }
